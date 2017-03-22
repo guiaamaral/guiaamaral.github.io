@@ -14,4 +14,4 @@ Now the score from PageSpeed Insights is:
 
 #### Optimize Frames per Second in pizza.html
 1. In `main.js` on `changePizzaSizes()` function I remove the class `.randomPizzaContainer` selector and declared two variables outside the `for` loop using the first size as model and then assigned the new size inside the loop
-2. In `main.js` on `updatePositions()` function I created an array to calculate and store five numbers outside the `for` loop and then assigned them inside the loop
+2. In `main.js` on `updatePositions()` function I created an array to calculate and store five numbers outside the `for` loop and then assigned them inside the loop. Besides this I reduced the amount of pizza elements generated from 200 to 30 that is still sufficiently to fill the screen and added a scroll event listener with requestAnimationFrame on updatePositions which optimizes the animations doing a single reflow and repaint cycle.

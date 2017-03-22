@@ -540,7 +540,8 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-  for (var i = 0; i < 200; i++) {
+  // Reduced the amount of pizza elements generated, 30 elements is still sufficiently to fill the screen
+  for (var i = 0; i < 30; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
@@ -551,4 +552,9 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelector("#movingPizzas1").appendChild(elem);
   }
   updatePositions();
+});
+
+// Added a scroll event listener with requestAnimationFrame on updatePositions
+window.addEventListener('scroll', function() {
+  window.requestAnimationFrame(updatePositions);
 });
