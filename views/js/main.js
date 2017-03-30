@@ -404,15 +404,18 @@ var resizePizzas = function(size) {
 
   // Changes the value for the size of the pizza above the slider
   function changeSliderLabel(size) {
+    // Create a var to do not repeat the same query selector multiple times
+    var pizzaSize = document.getElementById("pizzaSize");
+
     switch(size) {
       case "1":
-        document.querySelector("#pizzaSize").innerHTML = "Small";
+        pizzaSize.innerHTML = "Small";
         return;
       case "2":
-        document.querySelector("#pizzaSize").innerHTML = "Medium";
+        pizzaSize.innerHTML = "Medium";
         return;
       case "3":
-        document.querySelector("#pizzaSize").innerHTML = "Large";
+        pizzaSize.innerHTML = "Large";
         return;
       default:
         console.log("bug in changeSliderLabel");
@@ -424,7 +427,7 @@ var resizePizzas = function(size) {
    // Returns the size difference to change a pizza element from one size to another. Called by changePizzaSlices(size).
   function determineDx (elem, size) {
     var oldWidth = elem.offsetWidth;
-    var windowWidth = document.querySelector("#randomPizzas").offsetWidth;
+    var windowWidth = document.getElementById("randomPizzas").offsetWidth;
     var oldSize = oldWidth / windowWidth;
 
     // Changes the slider value to a percent width
@@ -448,8 +451,9 @@ var resizePizzas = function(size) {
   }
 
 
-  // Sets randomPizzaContainer outside the for loop to avoid repeat
-  var randomPizzaContainer = document.querySelectorAll(".randomPizzaContainer");
+  // Set randomPizzaContainer query selector outside the for loop to avoid repeat
+  var randomPizzaContainer = document.getElementsByClassName("randomPizzaContainer");
+
   // Get the size of the first element outside the for loop to avoid repeat
   var dx = determineDx(randomPizzaContainer[0], size);
   var newwidth = (randomPizzaContainer[0].offsetWidth + dx) + 'px';
@@ -510,15 +514,14 @@ function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
 
-  // Do the calculace out of the for loop
+  // Do the calcule out of the for loop
   var scrollPos = document.body.scrollTop / 1250;
   var phases = [];
   for (var j = 0; j < 5; j++) {
     var phase = Math.sin(scrollPos + (j % 5));
     phases.push(phase);
   }
-
-  var items = document.querySelectorAll('.mover');
+  var items = document.getElementsByClassName('mover');
   for (var i = 0; i < items.length; i++) {
     items[i].style.left = items[i].basicLeft + 100 * phases[i % 5] + 'px';
   }
@@ -549,7 +552,7 @@ document.addEventListener('DOMContentLoaded', function() {
     elem.style.width = "73.333px";
     elem.basicLeft = (i % cols) * s;
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
-    document.querySelector("#movingPizzas1").appendChild(elem);
+    document.getElementById("movingPizzas1").appendChild(elem);
   }
   updatePositions();
 });

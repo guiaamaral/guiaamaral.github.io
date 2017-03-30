@@ -9,9 +9,18 @@
 7. Create reduced and compressed `pizzeria-small.jpg` from `pizzeria.jpg`
 
 Now the score from PageSpeed Insights is:
-- Mobile: 94
+- Mobile: 93
 - Desktop: 95
 
 #### Optimize Frames per Second in pizza.html
-1. In `main.js` on `changePizzaSizes()` function I remove the class `.randomPizzaContainer` selector and declared two variables outside the `for` loop using the first size as model and then assigned the new size inside the loop
-2. In `main.js` on `updatePositions()` function I created an array to calculate and store five numbers outside the `for` loop and then assigned them inside the loop. Besides this I reduced the amount of pizza elements generated from 200 to 30 that is still sufficiently to fill the screen and added a scroll event listener with requestAnimationFrame on updatePositions which optimizes the animations doing a single reflow and repaint cycle.
+Changes made on `main.js`
+1. Changed `querySelector` to `getElementsById` on `windowWidth`
+2. Created a `randomPizzaContainer` var to select DOM elements outside the `changePizzaSizes()` function
+3. Changed `querySelectorAll` to `getElementsByClassName` on new `randomPizzaContainer` var
+4. Removed `dx` and `newwidth` vars from `changePizzaSizes()` function and `for` loop
+5. Created a `pizzaSize` var with repeated query to select a DOM element and change `querySelector` to `getElementById`
+6. Created an array on `updatePositions()` function to calculate and store five numbers outside the `for` loop and then assign them inside the loop
+7. Changed `querySelectorAll` to `getElementsByClassName` on `item` var
+8. Reduced the amount of pizza elements generated from 200 to 30 that is still sufficiently to fill the screen
+9. Changed `querySelector` to `getElementsById` on loop that move the background pizzas
+10. Added a scroll event listener with `requestAnimationFrame` on `updatePositions` which optimizes the animations doing a single reflow and repaint cycle
