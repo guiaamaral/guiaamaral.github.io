@@ -1,4 +1,11 @@
 # Website Performance Optimization portfolio project
+
+#### Instructions
+
+To run the portfolio website download the repository and open index.html in your browser. To view the pizza website access the project "Cam's Pizzeria" listed on portfolio homepage or open views/pizza.html.
+
+Alternatively, you can view online just [clicking here](https://guiaamaral.github.io/udacity-mobile-portfolio/).
+
 #### Optimize PageSpeed Insights score for index.html
 1. Minimized and inlined styles from `style.css`
 2. Define `media="print"` for `print.css`
